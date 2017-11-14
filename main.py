@@ -1,7 +1,10 @@
 from jadi import component
-
 from aj.plugins.core.api.sidebar import SidebarItemProvider
+import aj
 
+aj.config.load()
+if 'tinydb' not in aj.config.data:
+    aj.config.data['tinydb'] = "/ajenti-persistent"
 
 @component(SidebarItemProvider)
 class ItemProvider(SidebarItemProvider):
